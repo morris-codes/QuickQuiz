@@ -16,7 +16,7 @@ A simple, interactive quiz app built with React. This app allows users to take q
    ```
 2. Navigate to the project folder:
    ```bash
-   cd quiz-app
+   cd quiz-quiz
    ```
 3. Open the `App.jsx` file in your web browser to start using the app.
 
