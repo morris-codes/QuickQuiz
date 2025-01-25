@@ -12,11 +12,11 @@ A simple, interactive quiz app built with React. This app allows users to take q
 # Installation
 1. Clone the repository to your local machine:
    ```bash
-   git clone https://github.com/your-username/quiz-app.git
+   git clone https://github.com/your-username/QuickQuiz.git
    ```
 2. Navigate to the project folder:
    ```bash
-   cd quiz-quiz
+   cd quick-quiz
    ```
 3. Open the `App.jsx` file in your web browser to start using the app.
 
