@@ -1,7 +1,7 @@
-# quiz-app
+# quick-quiz
 
 # Description
-A simple, interactive quiz app built with HTML, CSS, and JavaScript. This app allows users to take quizzes on various topics, track their scores, and receive feedback. It’s designed to be user-friendly and provides an engaging learning experience.
+A simple, interactive quiz app built with React. This app allows users to take quizzes on various topics, track their scores, and receive feedback. It’s designed to be user-friendly and provides an engaging learning experience.
 
 # Features
 - Interactive Quiz: Users can take quizzes with multiple-choice questions.
@@ -18,9 +18,7 @@ A simple, interactive quiz app built with HTML, CSS, and JavaScript. This app al
    ```bash
    cd quiz-app
    ```
-3. Open the `index.html` file in your web browser to start using the app.
+3. Open the `App.jsx` file in your web browser to start using the app.
 
 ## Technologies Used
-- **HTML**: Markup language used to structure the content of the app.
-- **CSS**: Styling the app to ensure it’s user-friendly and visually appealing.
-- **JavaScript**: To add interactivity and handle quiz logic.
+- React
