@@ -88,7 +88,7 @@ const Quiz = () => {
                 <h6>You scored....</h6>
             </div>
             <div class="score">
-                <h4>17</h4>
+                <h4>16</h4>
                 <p>out of 20</p>
             </div>
             <div class="r-nav">
