@@ -14,8 +14,9 @@ const Quiz = () => {
             </div>
             <div class="welcome">
                 <div class="welc">
-                    <h6>Welcome to Quick-Quiz – Where Every Second Counts! <br />Think you're a genius under pressure? Prove it! Quick-Quiz is your ultimate destination for fast-paced, brain-busting challenges. <br />💡 Test your wits. Beat the clock. Show the world what you’ve got! <br />Tap ‘Start’ now and claim your spot on the leaderboard!</h6>
+                    <h6>Welcome to Quick-Quiz – Where Every Second Counts! <br />Think you're a genius under pressure? Prove it! Quick-Quiz is <br />your ultimate destination for fast-paced, brain-busting challenges. <br />💡 Test your wits. Beat the clock. Show the world what you’ve got! <br />Tap ‘Start’ now and claim your spot on the leaderboard!</h6>
                 </div>
+                <div className='course-home'>
                 <div class="course">
                     <ul>
                         <li>
@@ -26,7 +27,11 @@ const Quiz = () => {
                             <img src="/public/css.jpg" alt="" />
                             <p>CSS</p>
                         </li>
-                        <li>
+                    </ul>
+                </div>
+                <div className='course'>
+                    <ul>
+                    <li>
                             <img src="/public/JS.jpg" alt="" />
                             <p>Javascript</p>
                         </li>
@@ -35,6 +40,7 @@ const Quiz = () => {
                             <p>React</p>
                         </li>
                     </ul>
+                </div>
                 </div>
             </div>
             <div class="l-nav">
@@ -51,6 +57,7 @@ const Quiz = () => {
                 <div class="que-1">
                     <h6>What does HTML stand for?</h6>
                 </div>
+                <div className='course-home'>
                 <div class="option-1">
                     <ul>
                         <li>
@@ -61,7 +68,12 @@ const Quiz = () => {
                             <img src="/public/B.jpg" alt="" />
                             <p>HyperText Markdown Language</p>
                         </li>
-                        <li>
+
+                    </ul>
+                </div>
+                <div className='option-1'>
+                    <ul>
+                    <li>
                             <img src="/public/C.jpg" alt="" />
                             <p>HighText Markup Language</p>
                         </li>
@@ -69,8 +81,12 @@ const Quiz = () => {
                             <img src="/public/D.jpg" alt="" />
                             <p>HyperTool Markup Language</p>
                         </li>
+
                     </ul>
                 </div>
+                </div>
+
+
             </div>
             <div class="nav">
                 <button>Next</button>
