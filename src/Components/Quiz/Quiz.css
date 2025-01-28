@@ -6,7 +6,7 @@
     padding-top: 5%;
 }
 .parent, .parent-1 {
-    height: 82vh;
+    height: 700px;
     width: 65%;
     background-color: #fff;
     margin: 0 auto;
@@ -92,6 +92,10 @@
     background-color:  hsl(217, 48%, 68%);
     color: #fff;
     font-size: 15px;
+}
+.l-nav button a {
+    text-decoration: none;
+    color: #fff;
 }
 .l-nav button:hover, .nav button:hover, .r-nav button:hover {
     background: #000;

@@ -1,6 +1,6 @@
 import React from 'react'
 import './Quiz.css'
-import { data } from '../../assets/data';
+// import { data } from '../../assets/data';
 
 const Quiz = () => {
     
@@ -44,11 +44,11 @@ const Quiz = () => {
                 </div>
             </div>
             <div class="l-nav">
-                <button>Start</button>
+                <button className='start-btn'> <a href= "#quiz-section">Start</a></button>
             </div>
         </div>
     </div>
-    <div class="background-1">
+    <div id='quiz-section' class="background-1">
        <div class="parent-1">
             <div className='logo'>
                 <img src="/public/quick-logo.png" alt="" />
