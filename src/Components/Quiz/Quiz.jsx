@@ -3,9 +3,39 @@ import './Quiz.css'
 import { data } from '../../assets/data';
 
 const Quiz = () => {
-    let [index,setIndex] = useState(0);
-    let [question,setQuestion] = useState(data[index]);
+    let [index, setIndex] = useState(0);
+    let [selectedOptions, setSelectedOption] = useState([]);
+    let [question, setQuestion] = useState(data[index]);
     
+    //Option clicks
+    const optionClick = (option) => {
+    const retainOption = [...selectedOptions];
+        retainOption[index] = option;
+        setSelectedOption(retainOption);
+    };
+
+    //Next Button
+    const nextButton = () => {
+        if (index < data.length - 1) {
+            setIndex(index + 1);
+            setQuestion(data[index + 1]);
+            // setSelectedOption(null);
+        }
+    }
+    
+    //Previous Button
+    const previousButton = () => {
+        if (index > 0) {
+            setIndex(index - 1);
+            setQuestion(data[index - 1]);
+            // setSelectedOption(null); 
+        }
+    }
+    
+    //Submit Button
+    const submitButton = () => {
+        
+    };
 
   return (
     <div>
@@ -57,16 +87,18 @@ const Quiz = () => {
             </div>
             <div class="question-1">
                 <div class="que-1">
-                    <h6>{index+1}. {question.question}</h6>
+                    <h6>{question.question}</h6>
                 </div>
                 <div className='course-home'>
                 <div class="option-1">
                     <ul>
-                        <li>
+                        <li onClick={() => optionClick("option1")}
+                            className={selectedOptions[index] === 'option1' ? 'selected' : ''}>
                             <img src="/public/A.jpg" alt="" />
                             <p>{question.option1}</p>
                         </li>
-                        <li>
+                        <li onClick={() => optionClick("option2")}
+                            className={selectedOptions[index] === 'option2' ? 'selected' : ''}>
                             <img src="/public/B.jpg" alt="" />
                             <p>{question.option2}</p>
                         </li>
@@ -75,11 +107,13 @@ const Quiz = () => {
                 </div>
                 <div className='option-1'>
                     <ul>
-                    <li>
+                    <li onClick={() => optionClick("option3")}
+                            className={selectedOptions[index] === 'option3' ? 'selected' : ''}>
                             <img src="/public/C.jpg" alt="" />
                             <p>{question.option3}</p>
                         </li>
-                        <li>
+                        <li onClick={() => optionClick("option4")}
+                            className={selectedOptions[index] === 'option4' ? 'selected' : ''}>
                             <img src="/public/D.jpg" alt="" />
                             <p>{question.option4}</p>
                         </li>
@@ -91,10 +125,14 @@ const Quiz = () => {
 
             </div>
             <div class="nav">
-                <button>Previous</button>
-                <button>Next</button>
+                <button onClick={previousButton} disabled={index===0}>Previous</button>
+                {index === data.length - 1 ? (
+                  <button onClick={submitButton}>Submit</button>       
+                ):(
+                <button onClick={nextButton}>Next</button>
+                )}
             </div>
-            <div className='index'><i>1 of 20</i></div>
+                  <div className='index'><i><b>{index + 1} of {data.length}</b></i></div>
         </div>
     </div>
     <div class="Results">
@@ -119,4 +157,4 @@ const Quiz = () => {
   )
 }
 
-export default Quiz
+export default Quiz;
