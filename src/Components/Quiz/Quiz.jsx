@@ -1,12 +1,14 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './Quiz.css'
-// import { data } from '../../assets/data';
+import { data } from '../../assets/data';
 
 const Quiz = () => {
+    let [index,setIndex] = useState(0);
+    let [question,setQuestion] = useState(data[index]);
     
 
   return (
-    <>
+    <div>
     <div class="background">
        <div class="parent">
             <div className='logo'>
@@ -55,18 +57,18 @@ const Quiz = () => {
             </div>
             <div class="question-1">
                 <div class="que-1">
-                    <h6>What does HTML stand for?</h6>
+                    <h6>{index+1}. {question.question}</h6>
                 </div>
                 <div className='course-home'>
                 <div class="option-1">
                     <ul>
                         <li>
                             <img src="/public/A.jpg" alt="" />
-                            <p>HyperText Markup Language</p>
+                            <p>{question.option1}</p>
                         </li>
                         <li>
                             <img src="/public/B.jpg" alt="" />
-                            <p>HyperText Markdown Language</p>
+                            <p>{question.option2}</p>
                         </li>
 
                     </ul>
@@ -75,11 +77,11 @@ const Quiz = () => {
                     <ul>
                     <li>
                             <img src="/public/C.jpg" alt="" />
-                            <p>HighText Markup Language</p>
+                            <p>{question.option3}</p>
                         </li>
                         <li>
                             <img src="/public/D.jpg" alt="" />
-                            <p>HyperTool Markup Language</p>
+                            <p>{question.option4}</p>
                         </li>
 
                     </ul>
@@ -89,9 +91,10 @@ const Quiz = () => {
 
             </div>
             <div class="nav">
+                <button>Previous</button>
                 <button>Next</button>
             </div>
-            <div className='index'><i>Question 1 of 20</i></div>
+            <div className='index'><i>1 of 20</i></div>
         </div>
     </div>
     <div class="Results">
@@ -112,7 +115,7 @@ const Quiz = () => {
             </div>
         </div>
     </div>
-    </>
+    </div>
   )
 }
 
