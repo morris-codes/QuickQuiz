@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useState, useEffect } from "react";
 import "./Quiz.css";
 import { data } from "../../assets/data";
@@ -6,17 +7,22 @@ const Quiz = () => {
   let [index, setIndex] = useState(0);
   let [selectedOptions, setSelectedOption] = useState([]);
   let [question, setQuestion] = useState(data[index]);
-  const [timer, setTimer] = useState(300);
+  //state to handle the timer
+  const [timer, setTimer] = useState(60);
 
+  //created a side effect to handle the timer
   useEffect(() => {
     if (timer > 0) {
+      //created an interval to reduce the timer every second
       const interval = setInterval(() => {
         setTimer((currentTime) => currentTime - 1);
       }, 1000);
+      //clears the timer
       return () => clearInterval(interval);
     } else if (timer === 0) {
-      submitButton();
+      nextButton();
     }
+    //dependency array to trigger the useEffect hook as soon as the timer changes
   }, [timer]);
 
   //Option clicks
@@ -28,6 +34,7 @@ const Quiz = () => {
 
   //Next Button
   const nextButton = () => {
+    setTimer(60);
     if (index < data.length - 1) {
       setIndex(index + 1);
       setQuestion(data[index + 1]);
@@ -37,6 +44,7 @@ const Quiz = () => {
 
   //Previous Button
   const previousButton = () => {
+    setTimer(60);
     if (index > 0) {
       setIndex(index - 1);
       setQuestion(data[index - 1]);
