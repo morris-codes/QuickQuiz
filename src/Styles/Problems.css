@@ -1,0 +1,83 @@
+
+  .que-1 h6{
+    font-size: 22px;
+    color: #000;
+    text-align: center;
+  }
+  .solution {
+    display: grid;
+    grid-template-columns: auto auto;
+    justify-items: center;
+    width: 80%;
+    justify-self: center;
+    padding-bottom: 40px;
+}
+
+.option-1 {
+    display: grid;
+    width: 80%;
+    background-color:  hsl(217, 48%, 68%);
+    border-radius: 10px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+.option-1 img{
+    width: 20%;
+    height: 50px;
+    border-radius: 10px;
+}
+.option-1 p{
+    align-self: center;
+    color: #fff;
+}
+div.selected {
+    background-color: #1f1f1f;
+    border: 2px solid #545454;
+    border-radius: 10px;
+}
+.option-items{
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.nav {
+    width: 35%;
+    gap: 50px;
+    height: 8vh;
+    margin: 0 auto;
+    border-radius: 10px;
+    margin-bottom: 40px;
+    display: flex;
+    justify-content: space-between;
+
+}
+.nav button {
+    width: 100%;
+    display: block;
+    height: 8vh;
+    margin: 0 auto;
+    border-radius: 10px;
+    background-color:  hsl(217, 48%, 68%);
+    color: #fff;
+    font-size: 15px;
+}
+.submit-link {
+    width: 100%;
+    display: block;
+    height: 8vh;
+    margin: 0 auto;
+    border-radius: 10px;
+    background-color:  hsl(217, 48%, 68%);
+    color: #fff;
+    font-size: 15px;
+}
+.nav button:hover {
+    background: #000;
+}
+.index {
+    margin: 0 auto;
+    margin-bottom: 30px;
+}
