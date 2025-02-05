@@ -11,6 +11,7 @@ const Quiz = () => {
     const [quizOver, setQuizOver] = useState(false);
     const totalTime = 300;
     const [timer, setTimer] = useState(totalTime);
+    const [score, setScore] = useState(0);
 
   useEffect(() => {
     if (timer > 0) {
@@ -36,7 +37,6 @@ const Quiz = () => {
     if (index < data.length - 1) {
       setIndex(index + 1);
       setQuestion(data[index + 1]);
-      // setSelectedOption(null);
     }
   };
 
@@ -45,17 +45,25 @@ const Quiz = () => {
     if (index > 0) {
       setIndex(index - 1);
       setQuestion(data[index - 1]);
-      // setSelectedOption(null);
     }
   };
 
   //Submit Button
-    const submitButton = () => { };
-    
-    const endQuiz = () => {
+    const submitButton = () => {
         setQuizOver(true);
+        calculateScore();
     };
-
+    
+      // Calculate Score
+    const calculateScore = () => {
+        let correctAnswers = 0;
+        selectedOptions.forEach((option, idx) => {
+        if (option === data[idx].correctAnswer) {
+            correctAnswers++;
+        }
+    });
+    setScore(correctAnswers);
+  };
   return (
     <div>
       <div class="background">
