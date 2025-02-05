@@ -7,22 +7,21 @@ const Quiz = () => {
   let [index, setIndex] = useState(0);
   let [selectedOptions, setSelectedOption] = useState([]);
   let [question, setQuestion] = useState(data[index]);
-  //state to handle the timer
-  const [timer, setTimer] = useState(60);
 
-  //created a side effect to handle the timer
+    const [quizOver, setQuizOver] = useState(false);
+    const totalTime = 300;
+    const [timer, setTimer] = useState(totalTime);
+
   useEffect(() => {
     if (timer > 0) {
-      //created an interval to reduce the timer every second
+
       const interval = setInterval(() => {
         setTimer((currentTime) => currentTime - 1);
       }, 1000);
-      //clears the timer
       return () => clearInterval(interval);
-    } else if (timer === 0) {
-      nextButton();
+    } else {
+      endQuiz();
     }
-    //dependency array to trigger the useEffect hook as soon as the timer changes
   }, [timer]);
 
   //Option clicks
@@ -34,7 +33,6 @@ const Quiz = () => {
 
   //Next Button
   const nextButton = () => {
-    setTimer(60);
     if (index < data.length - 1) {
       setIndex(index + 1);
       setQuestion(data[index + 1]);
@@ -44,7 +42,6 @@ const Quiz = () => {
 
   //Previous Button
   const previousButton = () => {
-    setTimer(60);
     if (index > 0) {
       setIndex(index - 1);
       setQuestion(data[index - 1]);
@@ -53,7 +50,11 @@ const Quiz = () => {
   };
 
   //Submit Button
-  const submitButton = () => {};
+    const submitButton = () => { };
+    
+    const endQuiz = () => {
+        setQuizOver(true);
+    };
 
   return (
     <div>
@@ -110,85 +111,90 @@ const Quiz = () => {
           </div>
         </div>
       </div>
-      <div id="quiz-section" class="background-1">
-        <div class="parent-1">
-          <div className="logo">
-            <img src="/public/quick-logo.png" alt="" />
-          </div>
-          <div class="question-1">
-            <div class="que-1">
-              <h6>{question.question}</h6>
-            </div>
-            <div className="course-home">
-              <div class="option-1">
-                <ul>
-                  <li
-                    onClick={() => optionClick("option1")}
-                    className={
-                      selectedOptions[index] === "option1" ? "selected" : ""
-                    }
-                  >
-                    <img src="/public/A.jpg" alt="" />
-                    <p>{question.option1}</p>
-                  </li>
-                  <li
-                    onClick={() => optionClick("option2")}
-                    className={
-                      selectedOptions[index] === "option2" ? "selected" : ""
-                    }
-                  >
-                    <img src="/public/B.jpg" alt="" />
-                    <p>{question.option2}</p>
-                  </li>
-                </ul>
-              </div>
-              <div className="option-1">
-                <ul>
-                  <li
-                    onClick={() => optionClick("option3")}
-                    className={
-                      selectedOptions[index] === "option3" ? "selected" : ""
-                    }
-                  >
-                    <img src="/public/C.jpg" alt="" />
-                    <p>{question.option3}</p>
-                  </li>
-                  <li
-                    onClick={() => optionClick("option4")}
-                    className={
-                      selectedOptions[index] === "option4" ? "selected" : ""
-                    }
-                  >
-                    <img src="/public/D.jpg" alt="" />
-                    <p>{question.option4}</p>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-          <div class="nav">
-            <button onClick={previousButton} disabled={index === 0}>
-              Previous
-            </button>
-            {index === data.length - 1 ? (
-              <button onClick={submitButton}>Submit</button>
-            ) : (
-              <button onClick={nextButton}>Next</button>
-            )}
-          </div>
-          <div class="timer">
-            <p>
-              Time left {Math.floor(timer / 60)}: {timer % 60}
-            </p>
-          </div>
-          <div className="index">
-            <i>
-              <b>
-                {index + 1} of {data.length}
-              </b>
-            </i>
-          </div>
-        </div>
+        <div id="quiz-section" class="background-1">
+              {quizOver ? (
+                  <h2>Time's up! Quiz Over.</h2>
+              ) : (
+                  <div class="parent-1">
+                      <div className="logo">
+                          <img src="/public/quick-logo.png" alt="" />
+                      </div>
+                    <div className="timer-container">
+                        <div className="timer-bar" style={{ width: `${(timer / totalTime) * 100}%` }}> </div>
+                    </div>
+                      <p className="timer-text"> Time left {Math.floor(timer / 60)}:{String(timer % 60).padStart(2, "0")} </p>
+
+                      <div class="question-1">
+                          <div class="que-1">
+                              <h6>{question.question}</h6>
+                          </div>
+                          <div className="course-home">
+                              <div class="option-1">
+                                  <ul>
+                                      <li
+                                          onClick={() => optionClick("option1")}
+                                          className={
+                                              selectedOptions[index] === "option1" ? "selected" : ""
+                                          }
+                                      >
+                                          <img src="/public/A.jpg" alt="" />
+                                          <p>{question.option1}</p>
+                                      </li>
+                                      <li
+                                          onClick={() => optionClick("option2")}
+                                          className={
+                                              selectedOptions[index] === "option2" ? "selected" : ""
+                                          }
+                                      >
+                                          <img src="/public/B.jpg" alt="" />
+                                          <p>{question.option2}</p>
+                                      </li>
+                                  </ul>
+                              </div>
+                              <div className="option-1">
+                                  <ul>
+                                      <li
+                                          onClick={() => optionClick("option3")}
+                                          className={
+                                              selectedOptions[index] === "option3" ? "selected" : ""
+                                          }
+                                      >
+                                          <img src="/public/C.jpg" alt="" />
+                                          <p>{question.option3}</p>
+                                      </li>
+                                      <li
+                                          onClick={() => optionClick("option4")}
+                                          className={
+                                              selectedOptions[index] === "option4" ? "selected" : ""
+                                          }
+                                      >
+                                          <img src="/public/D.jpg" alt="" />
+                                          <p>{question.option4}</p>
+                                      </li>
+                                  </ul>
+                              </div>
+                          </div>
+                      </div>
+                      <div class="nav">
+                          <button onClick={previousButton} disabled={index === 0}>
+                              Previous
+                          </button>
+                          {index === data.length - 1 ? (
+                              <button onClick={submitButton}>Submit</button>
+                          ) : (
+                              <button onClick={nextButton}>Next</button>
+                          )}
+                      </div>
+                  
+                      <div className="index">
+                          <i>
+                              <b>
+                                  {index + 1} of {data.length}
+                              </b>
+                          </i>
+                      </div>
+                  </div>
+              )};
       </div>
       <div class="Results">
         <div class="p-result">
