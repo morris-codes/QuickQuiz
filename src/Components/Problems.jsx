@@ -3,11 +3,39 @@ import { data } from '../assets/data';
 import Header from './Header';
 import '../Styles/Problems.css';
 import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const Problems = () => {
     let [index, setIndex] = useState(0);
     let [selectedOptions, setSelectedOption] = useState([]);
     let [question, setQuestion] = useState(data[index]);
+
+    const totalTime = 300;
+    const [timer, setTimer] = useState(totalTime);
+
+    useEffect(() => {
+        if (timer > 0) {
+    
+          const interval = setInterval(() => {
+            setTimer((currentTime) => currentTime - 1);
+          }, 1000);
+          return () => clearInterval(interval);
+        } else {
+          submitButton();
+        }
+    }, [timer]);    
+    
+    // useEffect(() => {
+    //     if (timer > 0) {
+    //         const interval = setInterval(() => {
+    //             setTimer(prevTimer => prevTimer - 1);
+    //         }, 1000);
+
+    //         return () => clearInterval(interval);
+    //     } else {
+    //         submitButton();
+    //     }
+    // }, [timer]);
 
     //Option clicks
     const optionClick = (option) => {
@@ -33,6 +61,8 @@ const Problems = () => {
                 setQuestion(data[index - 1]);
             }
         }
+        
+        const navigate = useNavigate();
         const [allAnswers, setAllAnswers] = useState([]);
     
         useEffect(() => {
@@ -43,23 +73,31 @@ const Problems = () => {
         useEffect(() => {
         }, [allAnswers]); 
     
-        
-        let score = 0
-        //Submit Button
-        const submitButton = () => {
-            for (let t=0; t<allAnswers.length; t++){
-                if(allAnswers[t] == selectedOptions[t]){
-                    score = score + 1
-                }
+    //Submit Button
+        let finalScore = 0
+    const submitButton = () => {
+        for (let i=0; i<data.length; i++){
+            if(allAnswers[i] === selectedOptions[i]){
+             finalScore += 1
             }
-            console.log(score);
-        };
+        }
+        console.log("Final Score:", finalScore);  
+        setAllAnswers(finalScore);
+        navigate("/results", { state: { score: finalScore } });
+    };
+
   return (
     <>
        <div className="parent">
             <Header/>
 
             {/* QUESTION SECTION */}
+            <div className="timer-container">
+                <div className="timer-bar" style={{ width: `${(timer / totalTime) * 100}%` }}> </div>
+            </div>
+            
+            <p className="timer-text"> Time left {Math.floor(timer / 60)}:{String(timer % 60).padStart(2, "0")} </p>
+              
             <div className="question-1">
                 <div className="que-1">
                     <h6>{question.question}</h6>

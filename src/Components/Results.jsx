@@ -2,8 +2,14 @@ import React from 'react';
 import '../Styles/Results.css';
 import { Link } from 'react-router-dom';
 import Header from './Header';
+import { useLocation } from "react-router-dom";
 
 const Results = () => {
+    const location = useLocation();
+    const score = location.state?.score || 0;
+    console.log("Received Score:", score);
+    console.log("Location state:", location.state);
+
   return (
     <div className="parent">
         <Header/> 
@@ -13,11 +19,11 @@ const Results = () => {
                 <h6>You scored....</h6>
             </div>
             <div className="score">
-                <h4>16</h4>
+                <h4>{score}</h4>
                 <p>out of 20</p>
             </div>
             <div className="r-nav">
-                <button>Restart</button>
+                <Link to='/'><button>Restart</button></Link>
             </div>
         </div>
     </div>
