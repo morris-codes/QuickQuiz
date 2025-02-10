@@ -5,25 +5,35 @@
     color: #000;
     text-align: center;
 }
+.welc-large{
+    margin: 0;
+}
+.welcome{
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    gap: 50px;
+    width: 80%;
+}
 .welc-small {
     display: none; 
   }
 .test-categories {
     display: grid;
-    grid-template-columns: auto auto;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
     justify-items: center;
-    width: 80%;
+    width: 100%;
     justify-self: center;
 }
 .test-course {
     display: flex;
-    width: 60%;
+    width: 80%;
     background-color:  hsl(217, 48%, 68%);
     border-radius: 10px;
-    margin-bottom: 20px;
-    margin-top: 20px;
-    margin-left: 20px;
-    margin-right: 20px;
+    height: 60px;
+    gap: 10px;
 }
 .test-course img{
     width: 20%;
@@ -34,14 +44,11 @@
 .test-course p{
     align-self: center;
     color: #fff;
-}
+} 
 .l-nav {
     width: 18%;
-    height: 8vh;
-    margin: 0 auto;
+    margin: 0;
     border-radius: 10px;
-    margin-bottom: 40px;
-    margin-top: 40px;
 }
 .l-nav button {
     width: 100%;
@@ -63,16 +70,23 @@
 }
 
 /* SCREEN SIZE RESPONSIVENESS */
-@media all and (max-width: 481px) {
+@media all and (max-width: 800px) {
    .welcome-message{
     padding-left: 50px;
     padding-right: 50px;
+   } 
+   .welcome{
+    gap: 0;
+    justify-content: space-around;
+    height: 100%;
    }
 .welcome-message h6{
     font-size: 15px;
     font-weight: 600;
     color: #000;
     text-align: center;
+    margin: 0;
+    padding: 0;
 }
 .welc-large {
     display: none; 
@@ -85,19 +99,21 @@
     flex-direction: column;
     justify-items: center;
     align-items: center;
-    width: 70%;
-    height: 100%;
+    padding: 20px 0;
+    gap: 0;
 }
 .test-course {
     display: flex;
     align-items: center;
     width: 100%;
+    height: 6vh;
     background-color:  hsl(217, 48%, 68%);
     border-radius: 10px;
+    margin: 7px;
     gap: 10px;
 }
 .test-course img{
-    width: 20%;
+    width: 50px;
     height: 100%;
     border-radius: 10px;
 } 
@@ -107,29 +123,40 @@
     color: #fff;
 }
 .l-nav {
-    width: 18%;
+    width: 30%;
     height: 8vh;
-    margin: 0 auto;
     border-radius: 10px;
-    margin-bottom: 40px;
-    margin-top: 40px;
+    margin: 0;
+    padding-top: 30px;
 }
 .l-nav button {
     width: 100%;
     display: block;
     height: 8vh;
-    margin: 0 auto;
     border-radius: 10px;
     background-color:  hsl(217, 48%, 68%);
     color: #fff;
     font-size: 15px;
 }
-.l-nav button  {
-    text-decoration: none;
-    color: #fff;
-}
+
 .l-nav button:hover {
     background: #000;
     cursor: pointer;
 }
+.welcome{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+}
+
+
+
+@media (min-width:800px) and (max-width:1080px){
+    .welc-large {
+        display: none; 
+      }
+      .welc-small {
+        display: flex; 
+      }
 }
