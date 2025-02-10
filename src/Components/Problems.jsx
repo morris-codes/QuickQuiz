@@ -4,7 +4,7 @@ import Header from './Header';
 import '../Styles/Problems.css';
 import { Link } from 'react-router-dom';
 
-const Problems = () => {
+const Problems = ({giveData}) => {
     let [index, setIndex] = useState(0);
     let [selectedOptions, setSelectedOption] = useState([]);
     let [question, setQuestion] = useState(data[index]);
@@ -53,6 +53,8 @@ const Problems = () => {
                 }
             }
             console.log(score);
+            localStorage.setItem('scoreState', JSON.stringify(score))
+            giveData(score)
         };
   return (
     <>
