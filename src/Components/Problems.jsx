@@ -81,9 +81,7 @@ const Problems = () => {
              finalScore += 1
             }
         }
-        console.log("Final Score:", finalScore);  
-        setAllAnswers(finalScore);
-        navigate("/results", { state: { score: finalScore } });
+
     };
 
   return (
