@@ -82,6 +82,33 @@ div.selected {
     margin: 0 auto;
     margin-bottom: 30px;
 }
+<<<<<<< HEAD
+.timer-container {
+    width: 80%;
+    height: 10px;
+    background-color: #e0f7fa; 
+    border-radius: 5px;
+    overflow: hidden;
+    margin-bottom: 10px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .timer-bar {
+    height: 100%;
+    background-color: #03a9f4; 
+    transition: width 1s linear; 
+  
+  }
+  
+  .timer-text {
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+=======
 
 /* SCREEN SIZE RESPONSIVENESS */
 @media all and (max-width: 800px) {
@@ -188,3 +215,4 @@ div.selected {
     }
     }
     
+>>>>>>> 05a38210891f1695d68e3c2717636c2986f9e1b6
