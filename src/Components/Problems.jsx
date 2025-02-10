@@ -84,7 +84,7 @@ const Problems = ({ giveData }) => {
             navigate("/results", { state: { score: finalScore } });
 
             localStorage.setItem('scoreState', JSON.stringify(score))
-            giveData(score)
+            giveData(finalScore)
         };
         return (
             <>

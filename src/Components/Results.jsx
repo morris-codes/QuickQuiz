@@ -21,10 +21,11 @@ const Results = () => {
                 console.log(scoreState);
                 setSavedScore(scoreState)
             }
-            else if (score) {
+            else {
                 console.log(score);
+                setSavedScore(score);
             }
-        }, [])
+        }, [score])
 
         return (
             <div className="parent">
