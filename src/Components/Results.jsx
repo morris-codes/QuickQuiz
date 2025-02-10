@@ -1,9 +1,22 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import '../Styles/Results.css';
 import { Link } from 'react-router-dom';
 import Header from './Header';
 
-const Results = () => {
+const Results = ({score}) => {
+
+    const [savedScore, setSavedScore] = useState(null)
+
+    useEffect(() => {
+        const scoreState = localStorage.getItem('scoreState')
+        if(scoreState){
+            console.log(scoreState);
+            setSavedScore(scoreState)
+        }
+        else if(score){
+        console.log(score);
+        }
+    }, [])
   return (
     <div className="parent">
         <Header/> 
@@ -13,11 +26,11 @@ const Results = () => {
                 <h6>You scored....</h6>
             </div>
             <div className="score">
-                <h4>16</h4>
+                <h4>{savedScore? savedScore : score}</h4>
                 <p>out of 20</p>
             </div>
             <div className="r-nav">
-                <button>Restart</button>
+                <Link to='/problems'> <button>Restart</button> </Link>
             </div>
         </div>
     </div>
