@@ -80,9 +80,11 @@ const Problems = ({ giveData }) => {
             if (allAnswers[i] === selectedOptions[i]) {
                 finalScore += 1
             }
-            console.log(score);
+            setAllAnswers(finalScore);
+            navigate("/results", { state: { score: finalScore } });
+
             localStorage.setItem('scoreState', JSON.stringify(score))
-            giveData(score)
+            giveData(finalScore)
         };
         return (
             <>
