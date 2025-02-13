@@ -3,11 +3,29 @@ import { data } from '../assets/data';
 import Header from './Header';
 import '../Styles/Problems.css';
 import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const Problems = ({giveData}) => {
     let [index, setIndex] = useState(0);
     let [selectedOptions, setSelectedOption] = useState([]);
     let [question, setQuestion] = useState(data[index]);
+
+
+
+    const totalTime = 300;
+    const [timer, setTimer] = useState(totalTime);
+
+    useEffect(() => {
+        if (timer > 0) {
+    
+            const interval = setInterval(() => {
+                setTimer((currentTime) => currentTime - 1);
+            }, 1000);
+            return () => clearInterval(interval);
+        } else {
+            submitButton();
+        }
+    }, [timer]);
 
     //Option clicks
     const optionClick = (option) => {
@@ -33,6 +51,8 @@ const Problems = ({giveData}) => {
                 setQuestion(data[index - 1]);
             }
         }
+        
+        const navigate = useNavigate();
         const [allAnswers, setAllAnswers] = useState([]);
     
         useEffect(() => {
@@ -62,6 +82,13 @@ const Problems = ({giveData}) => {
             <Header/>
 
             {/* QUESTION SECTION */}
+            <div className="timer-container">
+                 <div className="timer-bar" style={{ width: `${(timer / totalTime) * 100}%` }}> </div>
+            </div>
+            
+            <p className="timer-text"> Time left {Math.floor(timer / 60)}:{String(timer % 60).padStart(2, "0")} </p>
+
+
             <div className="question-1">
                 <div className="que-1">
                     <h6>{question.question}</h6>

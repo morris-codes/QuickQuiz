@@ -16,7 +16,7 @@ const Home = () => {
               {/* WELCOME MESSAGE SECTION */}
 
               {/* THIS MESSAGE WILL DISPLAY ON LARGE SCREENS */}
-              <h6 className='welc-large' >Welcome to Quick-Quiz – Where Every Second Counts! <br />Think you're a genius under pressure? Prove it! Quick-Quiz is your ultimate destination for fast-paced, brain-busting challenges. <br />💡 Test your wits. Beat the clock. Show the world what you’ve got! <br />Tap ‘Start’ now and claim your spot on the leaderboard!</h6>
+              <h6 className='welc-large' >Welcome to QuickQuiz<br />Test your knowledge in minutes.<br />Let’s code smarter, one question at a time.</h6>
               
               {/* THIS MESSAGE WILL DISPLAY ON SMALLER SCREENS */}
               <h6 className='welc-small'>Welcome to Quick-Quiz. <br/>Test your wits! Beat the clock. Top the leaderboard. <br/> Tap "Start" now!</h6>
