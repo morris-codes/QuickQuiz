@@ -25,7 +25,7 @@ const Problems = ({giveData}) => {
         } else {
             submitButton();
         }
-    }, [timer]);
+    }, [timer, submitButton]);
 
     //Option clicks
     const optionClick = (option) => {
